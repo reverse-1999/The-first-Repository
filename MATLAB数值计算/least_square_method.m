@@ -21,7 +21,7 @@ for i=1:n0
     for o=2:n+1
         B(o,1) = B(o,1)+y(i).*x(i).^(o-1); 
     end
-end
+end%生成正则方程组Z和右边项B
 Result = Z\B;
 P = Result';
 
@@ -33,3 +33,23 @@ p2=Polynomial(x,y,3);
 
 disp(p1);
 disp(p2);
+
+p3=polyfit(x,y,2); %内置函数快速计算系数，降序排序 
+p4=polyfit(x,y,3);
+
+disp(p3);
+disp(p4);
+
+for k=-2:2
+    f=polyval(p3,k);%内置函数快速代入计算拟合值
+    disp(f);
+end
+
+
+
+
+
+
+
+
+
