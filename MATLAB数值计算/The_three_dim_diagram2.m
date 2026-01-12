@@ -1,0 +1,43 @@
+[X,Y] = meshgrid(-10:0.5:10,-10:0.5:10);
+z1 = 2.*X + Y + 30;
+z2 = 100-X.*X-Y.*Y;
+subplot(2,1,1);
+mesh(X,Y,z1);
+hold on;
+mesh(X,Y,z2);
+title("Surface mesh");
+xlabel('x'); 
+ylabel('y'); 
+zlabel('z'); 
+xlim([-10 10]); 
+ylim([-10 10]); 
+zlim([-100 100]); 
+
+subplot(2,1,2);
+c = contour(X,Y,z1-z2,[0,0]); 
+x1 = c(1,2:end); y1 = c(2,2:end); 
+plot3(x1, y1, 2*x1 + y1 + 30,'color','r','linewidth',2,'linestyle','-.') 
+grid on 
+view([45, 45]) 
+xlabel('x'); 
+ylabel('y'); 
+zlabel('z'); 
+title('Intersection line'); 
+xlim([-10 10]); 
+ylim([-10 10]); 
+zlim([-100 100]); 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
