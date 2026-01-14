@@ -27,8 +27,29 @@ function [y]=Gaussian1(x0,u0,o0)
 end
 %%%%%%%%% The third question %%%%%%%%%
 
+%%%%%%%%% The fourth question %%%%%%%%%
+img1 = imread("D:\Desktop\企业微信文件\1.png");
+img2 = imread("D:\Desktop\企业微信文件\2.png");
+figure(1);
+imshow(img1);
+d_img1 = im2double(img1);
+d_img2 = im2double(img2);
+disp(size(img1));
 
+a = 0.2163;
+b = -650.7729;
 
+[M,N,channels] = size(img1);
+
+imgfinal = zeros(M,N,3);
+for i = 1:M
+    for j = 1:N
+        d = ceil(abs(j*a+i+b)./sqrt(a^2+1));
+        imgfinal(i,j,:) = y0(d).*img1(i,j,:)+(1-y0(d))*img2(i,j,:);
+    end
+end
+figure(2);
+imshow(imgfinal);
 
 function [L, U] = Lu_decomposition(A)
     n = size(A,1);
