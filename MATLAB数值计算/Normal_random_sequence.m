@@ -1,0 +1,13 @@
+a = 0.8;
+N = 32;
+x = randn(1,N);
+y = filter(1,[1 -a],x);
+Rx = xcorr(y,'biased');
+Gx = abs(fft(Rx));
+figure;
+subplot(3,1,1);
+stem(y);
+subplot(3,1,2);
+stem(Rx);
+subplot(3,1,3);
+plot(Gx);
